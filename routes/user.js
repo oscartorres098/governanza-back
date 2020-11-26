@@ -1,8 +1,6 @@
 const { Router } = require('express');
 const router = Router();
 
-const User = require('../models/User');
-
 'use strict'
 
 var express = require('express');
