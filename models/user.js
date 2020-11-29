@@ -5,7 +5,11 @@ var Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
     email: String,
-    password: String
+    password: String, 
+    rol: String,
+    nombre: String,
+    apellido: String,
+    ultimo_ingreso: Date
 }, {
     timestamps: true
 });
