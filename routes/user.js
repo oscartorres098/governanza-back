@@ -5,10 +5,10 @@ const router = Router();
 
 var UserController = require('../controllers/user');
 
-router.get('/get', RolesController.get);
-router.post('/add', RolesController.add);
-router.post('/edit', RolesController.edit);
-router.post('/delete', RolesController.delete);
+router.get('/get', UserController.get);
+router.post('/add', UserController.add);
+router.post('/edit', UserController.edit);
+router.post('/delete', UserController.delete);
 router.post('/signup', UserController.signup);
 router.post('/signin', UserController.signin);
 
