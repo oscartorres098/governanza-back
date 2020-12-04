@@ -24,7 +24,7 @@ app.use((req, res, next) => {
 });
 
 // Añadir prefijos a rutas / Cargar rutas
-app.use('/api', user_routes);
+app.use("/user", user_routes);
 app.get("/", (req, res) => {
     return res.status(200).send({
         status: "success",
