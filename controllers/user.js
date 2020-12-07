@@ -2,6 +2,7 @@
 
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
+const user = require('../models/user');
 
 var controller = {
 
@@ -15,6 +16,13 @@ var controller = {
     var user = await User.findById(userId);
     delete user.password;
     res.status(200).json( user );
+  },
+  all: async (req, res) => {
+    console.log("users")
+    var users = await User.find().select({ "email": 1, "nombre": 1, "apellido": 1, "rol": 1, "ultimo_ingreso": 1})
+      console.log(users) 
+      // Prints "Space Ghost is a talk show host".
+      res.status(200).json( users );
   },
   add: async (req, res) => {
     res.status(200).json({ add: "add" });
@@ -41,8 +49,7 @@ var controller = {
     if (!user) return res.status(401).send('The email doen\' exists');
     if (user.password !== password) return res.status(401).send('Wrong Password');
     const ahora = new Date();
-    console.log(ahora)
-    await User.findByIdAndUpdate(user._id, { ultimo_ingreso: ahora })
+    await User.findByIdAndUpdate(user._id, { ultimo_ingreso: ahora });
     const token = jwt.sign({ _id: user._id }, 'secretkey');
     return res.status(200).json({ token, rol: user.rol });
   }

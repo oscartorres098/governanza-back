@@ -1,5 +1,5 @@
 'use strict'
-
+const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 
 var helplers = {
@@ -36,7 +36,7 @@ isAdmin: async (req, res, next) => {
 		const decoded = jwt.verify(token, "secretkey");  
     var userId = decoded._id
     var user = await User.findById(userId);
-		if (user.rol != "admin") {
+		if (user.rol != "Admin") {
 			return res.status(401).send('Unauhtorized Request');
 		}
 		req.userId = payload._id;

@@ -4,9 +4,10 @@ const router = Router();
 'use strict'
 
 var UserController = require('../controllers/user');
-var { verifyToken } = require('../helpers/auth');
+var { verifyToken, isAdmin } = require('../helpers/auth');
 
 router.get('/info', verifyToken, UserController.info);
+router.get('/all', isAdmin, UserController.all);
 router.post('/add', UserController.add);
 router.post('/edit', UserController.edit);
 router.post('/delete', UserController.delete);
