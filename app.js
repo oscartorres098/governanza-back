@@ -4,12 +4,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 
-// Ejecutar express (http)
-var app = express();
-
-// Cargar ficheros rutas
-var user_routes = require('./routes/user');
-
+//borramos express
 
 //borramos middleware
 app.use("/user", user_routes);
