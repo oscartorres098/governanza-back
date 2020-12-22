@@ -9,6 +9,10 @@ var bodyParser = require('body-parser');
 // Cargar ficheros rutas
 var user_routes = require('./routes/user');
 
+
+// Cargar ficheros rutas
+var user_routes = require('./routes/user');
+
 // Middlewares 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
