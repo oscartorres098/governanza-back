@@ -22,7 +22,7 @@ app.use((req, res, next) => {
     res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
     next();
 });
-//pureba1
+//pureba222222
 // Añadir prefijos a rutas / Cargar rutas
 app.use("/user", user_routes);
 app.get("/", (req, res) => {
